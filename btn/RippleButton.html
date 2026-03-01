@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ripple Click Button</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #1e2b3a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: sans-serif;
+    }
+    .ripple-container {
+      position: relative;
+    }
+    .ripple-btn {
+      position: relative;
+      overflow: hidden;
+      padding: 1.2rem 3.5rem;
+      font-size: 1.5rem;
+      border: none;
+      background: #6c5ce7;
+      color: white;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 6px 0 #4834d4;
+      transition: 0.1s;
+    }
+    .ripple-btn:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #4834d4;
+    }
+    .ripple-btn > .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.7);
+      transform: scale(0);
+      animation: ripple-animation 0.5s ease-out;
+      pointer-events: none;
+    }
+    @keyframes ripple-animation {
+      to {
+        transform: scale(6);
+        opacity: 0;
+      }
+    }
+    .note { margin-top: 2rem; color: #b0c4de; }
+  </style>
+</head>
+<body>
+  <div class="ripple-container">
+    <button class="ripple-btn" id="rippleBtn">click me</button>
+  </div>
+  <script>
+    const btn = document.getElementById('rippleBtn');
+    btn.addEventListener('click', function(e) {
+      const rect = btn.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size/2;
+      const y = e.clientY - rect.top - size/2;
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple';
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = x + 'px';
+      ripple.style.top = y + 'px';
+      ripple.style.position = 'absolute';
+      btn.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 500);
+    });
+  </script>
+</body>
+</html>
