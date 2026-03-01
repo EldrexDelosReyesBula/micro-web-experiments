@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Glow Button</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0c10;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Courier New', monospace;
+        }
+
+        .neon-btn {
+            background: transparent;
+            border: 2px solid #0ff;
+            color: #0ff;
+            padding: 1.2rem 3rem;
+            font-size: 2rem;
+            font-weight: bold;
+            border-radius: 60px;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            cursor: pointer;
+            animation: pulse 1.8s infinite;
+            transition: 0.3s;
+            box-shadow: 0 0 15px #0ff, 0 0 45px #0ff;
+        }
+
+        .neon-btn:hover {
+            background: #0ff;
+            color: #0a0c10;
+            box-shadow: 0 0 25px #0ff, 0 0 80px cyan;
+            border-color: white;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.9;
+            }
+
+            50% {
+                opacity: 1;
+                text-shadow: 0 0 10px cyan;
+            }
+
+            100% {
+                opacity: 0.9;
+            }
+        }
+
+        .note {
+            margin-top: 2rem;
+            color: #5f9ea0;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="text-align:center;">
+        <button class="neon-btn">neon</button>
+    </div>
+</body>
+
+</html>
