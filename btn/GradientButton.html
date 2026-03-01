@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gradient Button</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #0d1117;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: system-ui, 'Segoe UI', sans-serif;
+    }
+    .card {
+      text-align: center;
+      padding: 2rem;
+    }
+    .gradient-btn {
+      padding: 1.2rem 3.5rem;
+      font-size: 1.6rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 60px;
+      background: linear-gradient(45deg, #ff6ec4, #7873f5, #3bd1d3, #f6d365);
+      background-size: 300% 300%;
+      color: white;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+    .gradient-btn:hover {
+      transform: scale(1.08);
+      background-position: 100% 100%;
+      box-shadow: 0 15px 30px #ff6ec480;
+    }
+    .note {
+      margin-top: 2rem;
+      color: #aaa;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <button class="gradient-btn">✨ hover me</button>
+  </div>
+</body>
+</html>
