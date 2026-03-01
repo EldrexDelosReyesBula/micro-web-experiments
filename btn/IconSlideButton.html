@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Icon + Text Slide Button</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: #2c3e50;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .slide-btn {
+      background: #e67e22;
+      border: none;
+      padding: 1rem 3rem;
+      border-radius: 50px;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.3s;
+    }
+    .slide-btn i {
+      transform: translateX(-20px);
+      opacity: 0;
+      transition: 0.3s;
+    }
+    .slide-btn:hover i {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    .slide-btn:hover {
+      gap: 15px;
+      background: #f39c12;
+    }
+    .note { margin-top: 2rem; color: #ecf0f1; }
+  </style>
+</head>
+<body>
+  <div style="text-align:center;">
+    <button class="slide-btn"><i class="fas fa-rocket"></i> <span>hover me</span></button>
+  </div>
+</body>
+</html>
