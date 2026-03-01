@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Press Button</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(145deg, #1a1f2e 0%, #232b3b 100%);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    .press-3d {
+      position: relative;
+      background: #ff0557;
+      border: 2px solid #ff88af;
+      font-size: 2rem;
+      font-weight: 800;
+      padding: 1rem 3rem;
+      border-radius: 60px;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      cursor: pointer;
+      box-shadow: 0 15px 0 #a00338, 0 20px 20px rgba(0,0,0,0.4);
+      transform: translateY(0);
+      transition: all 0.1s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    .press-3d:active {
+      transform: translateY(12px);
+      box-shadow: 0 5px 0 #a00338, 0 10px 15px rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 480px) {
+      .press-3d {
+        font-size: 1.5rem;
+        padding: 0.8rem 2rem;
+        letter-spacing: 2px;
+        border-radius: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="press-3d">PRESS ME</button>
+</body>
+</html>
