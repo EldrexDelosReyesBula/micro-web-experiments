@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon button hover</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0b0b1f;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: system-ui, 'Segoe UI', sans-serif;
+        }
+
+        .card {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        /* hook line */
+        .hook {
+            color: #aaa9c2;
+            margin-bottom: 2.5rem;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hook span {
+            color: #f0e9ff;
+            font-weight: 500;
+        }
+
+        .neon-burst {
+            position: relative;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            font-weight: 700;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            cursor: pointer;
+            z-index: 1;
+            transition: color 0.2s ease;
+            box-shadow:
+                0 0 5px #0ff,
+                0 0 25px #0ff,
+                0 0 50px #0ff,
+                0 0 100px #0ff;
+            background: rgba(0, 255, 255, 0.05);
+            border: 2px solid #0ff;
+            text-shadow: 0 0 5px #0ff;
+        }
+
+        .neon-burst::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50px;
+            background: inherit;
+            filter: blur(12px);
+            z-index: -1;
+            opacity: 0.6;
+            transition: 0.3s;
+        }
+
+        .neon-burst:hover {
+            color: #0ff;
+            background: transparent;
+            border-color: #ff55b8;
+            box-shadow:
+                0 0 10px #ff0557,
+                0 0 40px #ff0557,
+                0 0 80px #ff0557,
+                0 0 160px #ff0557;
+            animation: pop 0.3s ease-out forwards;
+        }
+
+        .neon-burst:hover::before {
+            opacity: 1;
+            filter: blur(20px);
+            background: #ff0557;
+            box-shadow:
+                0 0 30px 10px #ff0f7f,
+                0 0 60px 30px #ffaa00,
+                0 0 120px 50px #ff0557;
+            transform: scale(1.3);
+        }
+
+        .neon-burst::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .neon-burst:hover::after {
+            opacity: 1;
+            animation: burst 0.4s linear forwards;
+            background: radial-gradient(circle at 30% 30%, #fff, #ff0557 30%, transparent 70%);
+            mix-blend-mode: overlay;
+        }
+
+        @keyframes burst {
+            0% {
+                box-shadow:
+                    0 0 0 0 #ff0,
+                    0 0 0 20px rgba(255, 0, 170, 0.4),
+                    0 0 0 40px rgba(255, 255, 255, 0.2);
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            100% {
+                box-shadow:
+                    0 0 0 20px #ff0,
+                    0 0 0 60px rgba(255, 5, 87, 0),
+                    0 0 0 100px rgba(255, 255, 255, 0);
+                transform: scale(1.6);
+                opacity: 0;
+            }
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(1);
+            }
+
+            40% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            color: #5f5e7b;
+            font-size: 0.9rem;
+        }
+
+        /*Developed by Eldrex Delos Reyes Bula*/
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="hook">🔥 <span>“This is just ONE button.</span> Watch what happens when I hover…”</div>
+        <button class="neon-burst">HOVER</button>
+    </div>
+</body>
+
+</html>
