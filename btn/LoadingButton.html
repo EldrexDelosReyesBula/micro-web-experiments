@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading Button</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: #192a56;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .load-btn {
+      background: #00a8ff;
+      color: white;
+      border: none;
+      padding: 1.2rem 3.5rem;
+      font-size: 1.5rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.2s;
+      min-width: 240px;
+    }
+    .load-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+    .note { margin-top: 2rem; color: #dcdde1; }
+  </style>
+</head>
+<body>
+  <div style="text-align:center;">
+    <button class="load-btn" id="loadingBtn">save</button>
+    <div class="note">click → spinner 2s</div>
+  </div>
+  <script>
+    const btn = document.getElementById('loadingBtn');
+    btn.addEventListener('click', () => {
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
